@@ -40,7 +40,7 @@ router.post('/send-email', upload.array('archivos'), (req, res) => {
     from: 'Mensaje enviado por <drop.atlixco@gmail.com>',
     to: destinatario,
     subject: 'Requisitos para el tramite: '+tramite,
-    text: `Nombre del solicitante: ${nombre}\nMetodo de contacto: ${email}`,
+    text: `Nombre del solicitante: ${nombre}\nMetodo de contacto para seguimiento: ${email}`,
     attachments,
   };
 
@@ -48,7 +48,7 @@ router.post('/send-email', upload.array('archivos'), (req, res) => {
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
-      res.json({ message: 'Correo electrónico enviado correctamente' });
+      res.json({ message: 'El correo electrónico enviado correctamente' });
     }
   });
 });
